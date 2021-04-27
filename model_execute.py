@@ -26,16 +26,17 @@ def main():
     y_hat = decoder.predict(y)
 
     img_to_show=[load_img("monalisa.jpeg", target_size=(100, 100)), y[0]]
+    titles=["Input image", "Image after encoding"]
 
     plt.figure(num=1, figsize=(4, 2))
     for i in range(2):
         plt.subplot(1, 2, i+1), plt.imshow(img_to_show[i])
         plt.xticks([])
         plt.yticks([])
-        plt.suptitle("Images")
+        plt.title(titles[i])
     plt.show()
 
-    print(ascii_decode(y_hat))
+    print("\n\n\nDecode message: "+ascii_decode(y_hat))
 
 if __name__ == "__main__":
     main()
