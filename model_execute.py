@@ -19,8 +19,7 @@ def main():
     decoder = model.get_layer('sentence_reconstruction')
 
     img = np.expand_dims(img_to_array(load_img("monalisa.jpeg", target_size=(100, 100))) / 255.0, axis=0)
-    str1='This is the year 2021 and the world is fighting against the coronavirus pandemic.'
-
+    str1=input("Enter text to encode:")
     sen = ascii_encode(str1, 100)
     y = encoder.predict([img, sen])
     y_hat = decoder.predict(y)
